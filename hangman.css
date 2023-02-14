@@ -7,6 +7,8 @@
     background: rgb(56, 179, 136);
     background: linear-gradient(324deg, rgba(56, 179, 136, 1) 0%, rgba(57, 208, 173, 1) 0%, rgba(57, 176, 123, 1) 0%, rgba(5, 31, 38, 1) 0%, rgba(99, 237, 173, 1) 85%);
     height: 100vh;
+    width: 100%;
+
 }
 
 #header {
@@ -37,23 +39,29 @@
     color: white;
     font-size: 20px;
 }
-
-.alpha {
-    height: 32px;
-    width: 24px;
-    background-color: black;
+.keyboard-container {
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+}
+.keybord {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.instruction-line {
+    font-size: 20px;
     color: white;
-    margin: 6px;
+    padding: 12px;
 }
-
-.line-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.alpha {
+padding: 4px;
+border-radius: 4px;
+background-color: black;
+color: #fff;
+width: 45px;
+margin: 4px;
 }
