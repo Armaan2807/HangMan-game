@@ -6,7 +6,7 @@
 .container {
     background: rgb(56, 179, 136);
     background: linear-gradient(324deg, rgba(56, 179, 136, 1) 0%, rgba(57, 208, 173, 1) 0%, rgba(57, 176, 123, 1) 0%, rgba(5, 31, 38, 1) 0%, rgba(99, 237, 173, 1) 85%);
-    height: 100vh;
+    height: 100%;
     width: 100%;
     width: 100vw;
 }
@@ -37,16 +37,18 @@
 
 .sub-heading {
     color: white;
-    font-size: 20px;
+    font-size: 25px;
 }
+
 .keyboard-container {
- 
-    display:flex ;
+
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
+
 .keyboard {
     max-width: 700px;
     width: 100%;
@@ -54,16 +56,89 @@
     gap: 6px;
     flex-wrap: wrap;
 }
+
 .instruction-line {
-    font-size: 20px;
+    font-size: 28px;
     color: white;
     padding: 12px;
 }
+
 .alpha {
-padding: 4px;
-border-radius: 4px;
-background-color: black;
-color: #fff;
-width: 45px;
-margin: 4px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: black;
+    color: #fff;
+    width: 45px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.alpha:hover {
+    background-color: beige;
+    color: #000;
+    border: none;
+}
+
+.guess-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.guessed-word {
+    font-size: 16px;
+    color: #fff;
+}
+
+.game-status {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.choosen-category {
+    font-size: 35px;
+    color: white;
+}
+
+.hangman-box {
+    border: 2px dashed white;
+    height: 230px;
+    width: 440px;
+}
+
+.hangman-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clue {
+    font-size: 25px;
+    color: white;
+
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+}
+
+.play-btn {
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hint-btn {
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
 }
