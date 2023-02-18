@@ -23,49 +23,130 @@
         <p>Use the alphabet below to guess the word, or click hint to get a clue.</p>
       </div>
       <div class="keyboard">
-        <button class="alpha">A</button>
-        <button class="alpha">B</button>
-        <button class="alpha">C</button>
-        <button class="alpha">D</button>
-        <button class="alpha">E</button>
-        <button class="alpha">F</button>
-        <button class="alpha">G</button>
-        <button class="alpha">H</button>
-        <button class="alpha">I</button>
-        <button class="alpha">J</button>
-        <button class="alpha">K</button>
-        <button class="alpha">L</button>
-        <button class="alpha">M</button>
-        <button class="alpha">N</button>
-        <button class="alpha">O</button>
-        <button class="alpha">P</button>
-        <button class="alpha">Q</button>
-        <button class="alpha">R</button>
-        <button class="alpha">S</button>
-        <button class="alpha">T</button>
-        <button class="alpha">U</button>
-        <button class="alpha">V</button>
-        <button class="alpha">W</button>
-        <button class="alpha">X</button>
-        <button class="alpha">Y</button>
-        <button class="alpha">Z</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="A">A</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="B">B</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="C">C</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="D">D</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="E">E</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="F">F</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="G">G</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="H">H</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="I">I</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="J">J</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="K">K</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="L">L</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="M">M</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="N">N</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="O">O</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="P">P</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Q">Q</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="R">R</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="S">S</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="T">T</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="U">U</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="V">V</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="X">X</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Y">Y</button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Z">Z</button>
       </div>
     </div>
     <!-- It a guess word container  -->
     <div class="guess-container">
       <div class="choosen-category">The choosen category is Cities</div>
-      <div class="guessed-word">_ _ _ _</div>
-      <div class="game-status">Game Over</div>
+      <div class="guessed-word" id="guessedId"></div>
+      <div class="lives" id="livesId"></div>
+      <div class="game-status" id="gameOverId">Game Over</div>
     </div>
     <div class="hangman-container">
       <div class="clue">Home of AC and inter</div>
-      <div class="hangman-box"></div>
-    </div> 
+      <div class="hangman-box" id="stickman"></div>
+    </div>
     <!-- Game Controls -->
     <div class="game-controls">
-    <button class="hint-btn">Hint</button>
-    <button class="play-btn">Play Again</button>  
+      <button class="hint-btn">Hint</button>
+      <button class="play-btn">Play Again</button>
     </div>
   </div>
 </body>
+<script>
+  let word = "DELHI"
+  let lives = 10
+  let gameover = false
+  let drawArray = [rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1];
+  function draw($pathFromx, $pathFromy, $pathTox, $pathToy) {
+context.moveTo($pathFromx, $pathFromy);
+context.lineTo($pathTox, $pathToy);
+context.stroke();
+}
+
+  frame1 = function () {
+    draw(0, 150, 150, 150);
+  };
+
+  frame2 = function () {
+    draw(10, 0, 10, 600);
+  };
+
+  frame3 = function () {
+    draw(0, 5, 70, 5);
+  };
+
+  frame4 = function () {
+    draw(60, 5, 60, 15);
+  };
+
+  torso = function () {
+    draw(60, 36, 60, 70);
+  };
+
+  rightArm = function () {
+    draw(60, 46, 100, 50);
+  };
+
+  leftArm = function () {
+    draw(60, 46, 20, 50);
+  };
+
+  rightLeg = function () {
+    draw(60, 70, 100, 100);
+  };
+
+  leftLeg = function () {
+    draw(60, 70, 20, 100);
+  };
+  function canvas() {
+    myStickman = document.getElementById("stickman");
+    context = myStickman.getContext('2d');
+    context.beginPath();
+    context.strokeStyle = "#fff";
+    context.lineWidth = 2;
+  };
+  function animate() {
+    var drawMe = lives ;
+    drawArray[drawMe]();
+  }
+  function handleKeyPress(event) {
+    console.log(event)
+    document.getElementById(event.target.innerHTML).className += " pressed "
+    let guess = event.target.innerHTML
+    for (let i = 0; i < word.length; i++) {
+      console.log(word[i], guess)
+      if (word[i] == guess) {
+        document.getElementById("guessedId").innerHTML += guess
+      }
+    }
+    if (word.indexOf(guess) == -1) {
+      lives -= 1
+      animate() 
+    }
+    document.getElementById("livesId").innerHTML = lives;
+    if (lives == 0) {
+      document.getElementById("gameOverId").style.visibility = "visible";
+    }
+  }
+
+  
+  
+</script>
+
 </html>
