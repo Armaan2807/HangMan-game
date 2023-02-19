@@ -202,13 +202,11 @@
       frame2,
       frame1,
     ];
-
     function handleKeyPress(event) {
-      console.log(event);
-      // document.getElementById(event.target.innerHTML).className += " pressed ";
-      let guess = event.target.innerHTML;
+      let elementId = event.target.innerText;
+      document.getElementById(elementId).className += " pressed ";
+      let guess = event.target.innerText;
       for (let i = 0; i < word.length; i++) {
-        console.log(word[i], guess);
         if (word[i] == guess) {
           document.getElementById("guessedId").innerHTML += guess;
         }
@@ -222,5 +220,6 @@
         document.getElementById("gameOverId").style.visibility = "visible";
       }
     }
+    canvas();
   </script>
 </html>
