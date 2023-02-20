@@ -110,6 +110,7 @@
         <div class="choosen-category">The choosen category is Cities</div>
         <div class="guessed-word" id="guessedId"></div>
         <div class="lives" id="livesId"></div>
+        <div class="game-status" id="winId">You Win!!!</div>
         <div class="game-status" id="gameOverId">Game Over</div>
       </div>
       <div class="hangman-container">
@@ -144,7 +145,8 @@
       ["ALIEN", "DIRTYHARY", "GLADIATOR", "FINDINGNEMO", "JAWS"],
       ["MANCHESTER", "MILAN", "MADRID", "AMSTERDAM", "PRAGUE"],
     ];
-    let chosenCategory =
+    function choseRandomCategory() {
+      let chosenCategory =
       categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
@@ -152,6 +154,8 @@
     for (let i = 0; i < word.length; i++) {
       document.getElementById("guessedId").innerText += "-";
     }
+    }
+    choseRandomCategory();
     var animate = function () {
       var drawMe = lives;
       drawArray[drawMe]();
@@ -242,6 +246,9 @@
         lives -= 1;
         animate();
       }
+      if (document.getElementById("guessedId").innerText==word){
+        document.getElementById("winId").style.visibility = "visible";
+      }
       document.getElementById("livesId").innerHTML =
         "You have " + lives + " Lives";
       if (lives == 0) {
@@ -288,7 +295,10 @@
       }
       context.clearRect(0, 0, 400, 400);
       document.getElementById("gameOverId").style.visibility = "hidden";
+      document.getElementById("winId").style.visibility = "hidden";
+
       document.getElementById("guessedId").innerHTML = "";
+      choseRandomCategory();
     }
   </script>
 </html>
