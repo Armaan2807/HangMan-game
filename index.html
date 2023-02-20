@@ -1,225 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="hangman.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <header id="header">
-        <div class="main-heading">
-          <div><img class="header-icon" src="hangman-1.png" alt="" /></div>
-          <div class="heading">HANGMAN GAME</div>
-        </div>
-        <div class="sub-heading"><u> Made by - Armaan </u></div>
-      </header>
-      <div class="keyboard-container">
-        <div class="instruction-line">
-          <p>
-            Use the alphabet below to guess the word, or click hint to get a
-            clue.
-          </p>
-        </div>
-        <div class="keyboard">
-          <button class="alpha" onclick="handleKeyPress(event)" id="A">
-            A
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="B">
-            B
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="C">
-            C
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="D">
-            D
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="E">
-            E
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="F">
-            F
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="G">
-            G
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="H">
-            H
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="I">
-            I
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="J">
-            J
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="K">
-            K
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="L">
-            L
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="M">
-            M
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="N">
-            N
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="O">
-            O
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="P">
-            P
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="Q">
-            Q
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="R">
-            R
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="S">
-            S
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="T">
-            T
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="U">
-            U
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="V">
-            V
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="X">
-            X
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="Y">
-            Y
-          </button>
-          <button class="alpha" onclick="handleKeyPress(event)" id="Z">
-            Z
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="hangman.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header id="header">
+      <div class="main-heading">
+        <div><img class="header-icon" src="hangman-1.png" alt="" /></div>
+        <div class="heading">HANGMAN GAME</div>
       </div>
-      <!-- It a guess word container  -->
-      <div class="guess-container">
-        <div class="choosen-category">The choosen category is Cities</div>
-        <div class="guessed-word" id="guessedId"></div>
-        <div class="lives" id="livesId"></div>
-        <div class="game-status" id="gameOverId">Game Over</div>
+      <div class="sub-heading"><u> Made by - Armaan </u></div>
+    </header>
+    <div class="keyboard-container">
+      <div class="instruction-line">
+        <p>
+          Use the alphabet below to guess the word, or click hint to get a
+          clue.
+        </p>
       </div>
-      <div class="hangman-container">
-        <div class="clue">Home of AC and inter</div>
-        <!-- <div class="hangman-box" id="stickman"></div> -->
-        <canvas id="stickman"
-          >This Text will show if the Browser does NOT support HTML5 Canvas
-          tag</canvas
-        >
-      </div>
-      <!-- Game Controls -->
-      <div class="game-controls">
-        <button class="hint-btn">Hint</button>
-        <button class="play-btn">Play Again</button>
+      <div class="keyboard">
+        <button class="alpha" onclick="handleKeyPress(event)" id="A">
+          A
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="B">
+          B
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="C">
+          C
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="D">
+          D
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="E">
+          E
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="F">
+          F
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="G">
+          G
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="H">
+          H
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="I">
+          I
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="J">
+          J
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="K">
+          K
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="L">
+          L
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="M">
+          M
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="N">
+          N
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="O">
+          O
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="P">
+          P
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Q">
+          Q
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="R">
+          R
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="S">
+          S
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="T">
+          T
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="U">
+          U
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="W">
+          W
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="V">
+          V
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="X">
+          X
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Y">
+          Y
+        </button>
+        <button class="alpha" onclick="handleKeyPress(event)" id="Z">
+          Z
+        </button>
       </div>
     </div>
-  </body>
-  <script>
-    let word = "DELHI";
-    let lives = 10;
-    let gameover = false;
-    var animate = function () {
-      var drawMe = lives;
-      drawArray[drawMe]();
-    };
-    canvas = function () {
-      myStickman = document.getElementById("stickman");
-      context = myStickman.getContext("2d");
-      context.beginPath();
-      context.strokeStyle = "#fff";
-      context.lineWidth = 2;
-    };
-
-    head = function () {
-      myStickman = document.getElementById("stickman");
-      context = myStickman.getContext("2d");
-      context.beginPath();
-      context.arc(60, 25, 10, 0, Math.PI * 2, true);
-      context.stroke();
-    };
-
-    draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
-      context.moveTo($pathFromx, $pathFromy);
-      context.lineTo($pathTox, $pathToy);
-      context.stroke();
-    };
-
-    frame1 = function () {
-      draw(0, 150, 150, 150);
-    };
-
-    frame2 = function () {
-      draw(10, 0, 10, 600);
-    };
-
-    frame3 = function () {
-      draw(0, 5, 70, 5);
-    };
-
-    frame4 = function () {
-      draw(60, 5, 60, 15);
-    };
-
-    torso = function () {
-      draw(60, 36, 60, 70);
-    };
-
-    rightArm = function () {
-      draw(60, 46, 100, 50);
-    };
-
-    leftArm = function () {
-      draw(60, 46, 20, 50);
-    };
-
-    rightLeg = function () {
-      draw(60, 70, 100, 100);
-    };
-
-    leftLeg = function () {
-      draw(60, 70, 20, 100);
-    };
-
-    let drawArray = [
-      rightLeg,
-      leftLeg,
-      rightArm,
-      leftArm,
-      torso,
-      head,
-      frame4,
-      frame3,
-      frame2,
-      frame1,
+    <!-- It a guess word container  -->
+    <div class="guess-container">
+      <div class="choosen-category">The choosen category is Cities</div>
+      <div class="guessed-word" id="guessedId"></div>
+      <div class="lives" id="livesId"></div>
+      <div class="game-status" id="gameOverId">Game Over</div>
+    </div>
+    <div class="hangman-container">
+      <div class="clue">Home of AC and inter</div>
+      <!-- <div class="hangman-box" id="stickman"></div> -->
+      <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas
+        tag</canvas>
+    </div>
+    <!-- Game Controls -->
+    <div class="game-controls">
+      <button class="hint-btn">Hint</button>
+      <button class="play-btn" onclick="playAgain()">Play Again</button>
+    </div>
+  </div>
+</body>
+<script>
+  let word = "DELHI";
+  let lives = 10;
+  let gameover = false;
+  let categories = [
+        ["EVERTON", "LIVERPOOL", "SWANSEA", "CHELSEA", "HULL", "MANCHESTERCITY", "NEWCASTLEUNITED"],
+        ["ALIEN", "DIRTYHARY", "GLADIATOR", "FINDINGNEMO", "JAWS"],
+        ["MANCHESTER", "MILAN", "MADRID", "AMSTERDAM", "PRAGUE"]
     ];
-    function handleKeyPress(event) {
-      let elementId = event.target.innerText;
-      document.getElementById(elementId).className += " pressed ";
-      let guess = event.target.innerText;
-      for (let i = 0; i < word.length; i++) {
-        if (word[i] == guess) {
-          document.getElementById("guessedId").innerHTML += guess;
-        }
-      }
-      if (word.indexOf(guess) == -1) {
-        lives -= 1;
-        animate();
-      }
-      document.getElementById("livesId").innerHTML = lives;
-      if (lives == 0) {
-        document.getElementById("gameOverId").style.visibility = "visible";
+   let chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+    word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+    word = word.replace(/\s/g, "-");
+    console.log(word);
+    for(let i=0;i<word.length;i++){
+      document.getElementById("guessedId").innerText +="-"
+    }
+  var animate = function () {
+    var drawMe = lives;
+    drawArray[drawMe]();
+  };
+  canvas = function () {
+    myStickman = document.getElementById("stickman");
+    context = myStickman.getContext("2d");
+    context.beginPath();
+    context.strokeStyle = "#fff";
+    context.lineWidth = 2;
+  };
+
+  head = function () {
+    myStickman = document.getElementById("stickman");
+    context = myStickman.getContext("2d");
+    context.beginPath();
+    context.arc(60, 25, 10, 0, Math.PI * 2, true);
+    context.stroke();
+  };
+
+  draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
+    context.moveTo($pathFromx, $pathFromy);
+    context.lineTo($pathTox, $pathToy);
+    context.stroke();
+  };
+
+  frame1 = function () {
+    draw(0, 150, 150, 150);
+  };
+
+  frame2 = function () {
+    draw(10, 0, 10, 600);
+  };
+
+  frame3 = function () {
+    draw(0, 5, 70, 5);
+  };
+
+  frame4 = function () {
+    draw(60, 5, 60, 15);
+  };
+
+  torso = function () {
+    draw(60, 36, 60, 70);
+  };
+
+  rightArm = function () {
+    draw(60, 46, 100, 50);
+  };
+
+  leftArm = function () {
+    draw(60, 46, 20, 50);
+  };
+
+  rightLeg = function () {
+    draw(60, 70, 100, 100);
+  };
+
+  leftLeg = function () {
+    draw(60, 70, 20, 100);
+  };
+
+  let drawArray = [
+    rightLeg,
+    leftLeg,
+    rightArm,
+    leftArm,
+    torso,
+    head,
+    frame4,
+    frame3,
+    frame2,
+    frame1,
+  ];
+  function handleKeyPress(event) {
+    let elementId = event.target.innerText;
+    document.getElementById(elementId).className += " pressed ";
+    let guess = event.target.innerText;
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] == guess) {
+        document.getElementById("guessedId").innerHTML[i] = guess;
       }
     }
-    canvas();
-  </script>
+    if (word.indexOf(guess) == -1) {
+      lives -= 1;
+      animate();
+    }
+    document.getElementById("livesId").innerHTML = "You have " + lives + " Lives";
+    if (lives == 0) {
+      document.getElementById("gameOverId").style.visibility = "visible";
+    }
+  }
+  canvas();
+  function playAgain() {
+    lives = 10;
+    document.getElementById("livesId").innerHTML = "You have " + lives + " Lives";
+    let alphaArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    for (let i = 0; i < 26; i++) {
+      if (document.getElementById(alphaArr[i]).classList) {
+        document.getElementById(alphaArr[i]).classList.remove("pressed")
+      }
+    }
+    context.clearRect(0, 0, 400, 400);
+    document.getElementById("gameOverId").style.visibility = "hidden";
+    document.getElementById("guessedId").innerHTML = ""
+  }
+  
+</script>
+
 </html>
