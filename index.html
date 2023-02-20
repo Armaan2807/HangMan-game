@@ -114,7 +114,7 @@
         <div class="game-status" id="gameOverId">Game Over</div>
       </div>
       <div class="hangman-container">
-        <div class="clue">Home of AC and inter</div>
+        <div class="clue" id="hint">- - - - - - - - - - - - - </div>
         <!-- <div class="hangman-box" id="stickman"></div> -->
         <canvas id="stickman"
           >This Text will show if the Browser does NOT support HTML5 Canvas
@@ -123,7 +123,7 @@
       </div>
       <!-- Game Controls -->
       <div class="game-controls">
-        <button class="hint-btn">Hint</button>
+        <button class="hint-btn" onclick="showHint()">Hint</button>
         <button class="play-btn" onclick="playAgain()">Play Again</button>
       </div>
     </div>
@@ -145,9 +145,14 @@
       ["ALIEN", "DIRTYHARY", "GLADIATOR", "FINDINGNEMO", "JAWS"],
       ["MANCHESTER", "MILAN", "MADRID", "AMSTERDAM", "PRAGUE"],
     ];
+   let hints = [
+        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
+        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
+        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+    ];
+    let chosenCategory=""
     function choseRandomCategory() {
-      let chosenCategory =
-      categories[Math.floor(Math.random() * categories.length)];
+   chosenCategory =categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
@@ -155,6 +160,12 @@
       document.getElementById("guessedId").innerText += "-";
     }
     }
+    function showHint(){
+      var catagoryIndex = categories.indexOf(chosenCategory);
+    var hintIndex = chosenCategory.indexOf(word);
+    document.getElementById("hint").innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
+
+  };
     choseRandomCategory();
     var animate = function () {
       var drawMe = lives;
