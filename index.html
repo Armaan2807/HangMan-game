@@ -154,7 +154,7 @@
     function choseRandomCategory() {
    chosenCategory =categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-    word = word.replace(/\s/g, "-");
+    word = word.replace(/\s/g, "-"); // It replaces the space with dash
     console.log(word);
     for (let i = 0; i < word.length; i++) {
       document.getElementById("guessedId").innerText += "-";
